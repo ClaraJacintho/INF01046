@@ -11,4 +11,4 @@ for i=1:256
     pos=find(I_in==i-1);
     I_out(pos)=sum(h(1:i))/s*255;
 end;
-figure, imshow(uint8(I_out))
+figure, imshow(uint8(I_out));
