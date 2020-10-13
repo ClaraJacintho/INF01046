@@ -1,13 +1,3 @@
-%%%%%%%Function to generate Ulichney Halftone Patterns%%%%%%%%%%
-
-%%   Author:
-%%   Mr. Sankarasrinivasan
-%%   Research Fellow, Multimedia Signal Processing Lab, NTUST, Taiwan
-%%   Advisor: Prof. Jing Ming Guo
-%%   Dated: Apr, 2018
-
-%met=1 (clustered dot 4x4); met=2 (clustered dot 8x8) met=3 dispersed dot
-
 function [HOD]=Ulichney(im,met)
 im=im2double(im);
 [s1 s2]=size(im);
