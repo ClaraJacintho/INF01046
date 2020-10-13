@@ -1,27 +1,4 @@
 function D = Floyd_Steinberg_Dithering(G)
-% ================================================================
-% FUNCTION Floyd_Steinberg Dithering Algorithm
-%
-% Input: G = a 8-bit grayscale / color image
-% Output: D = dithered image of G's format with only values 0 and 255 of the same 
-% ----------------------------------------------------------------
-% Demo:
-%        G = imread('peppers.png');
-%        D = Floyd_Steinberg_Dithering(G);
-%        figure('position',[50,50,600,900]),subplot(211),imshow(G),title('Original Image');
-%        subplot(212),imshow(D),title('Dithered Image');
-% ----------------------------------------------------------------
-% For more details about Floyd Steinberg Dithering Algorithm
-% Please check
-% http://en.wikipedia.org/wiki/Floyd%E2%80%93Steinberg_dithering
-% ----------------------------------------------------------------
-% Oct. 18th 2011
-% By Yue Wu,
-% Department of Electrical and Computer Engineering
-% Tufts University,
-% Medford, MA 02155
-% ================================================================
-
 switch size(G,3)
     case 1
     G = double(G); % convert the original image from unit8 to double
