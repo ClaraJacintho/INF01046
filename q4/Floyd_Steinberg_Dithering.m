@@ -5,12 +5,6 @@ switch size(G,3)
     D = zeros(size(G)); % initialize dithered image D
     [M,N] = size(G); % extract size information of the original image
     for r = 1:M
-        % applying '2'-like scanning order 
-        % ->>>>>>>>>>>>>>>>>>>>>>>-
-        %                        |
-        % -<<<<<<<<<<<<<<<<<<<<<<<-
-        % |
-        % ->>>>>>>>>>>>>>>>>>>>>>>-
         if mod(r,2) == 0 % scan pixel from left to right
             cOrder = 1:N; 
             direction = 'l2r';
@@ -79,6 +73,5 @@ switch size(G,3)
             D(:,:,i) = tD;
         end
 end
-
 D = uint8(D); % convert double D to uint8
             
