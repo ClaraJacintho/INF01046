@@ -1,3 +1,4 @@
+function quantizacao_c_kmeans(Img, bloco, dicio)
 %% Usando kmeans para achar o dicionário na
 %% compressão por quantização vetorial
 % entrada:-> imagem em tons de cinza
@@ -8,16 +9,16 @@ close all;
 tic;
 %--------------------------------------------------
 % Parâmetros de entrada L, K
-L = 64; % Tamanho do bloco,
-		% bloco deve ser quadrado 4=2x2, 16=4x4, 64=8x8 (sugerido L=4)
-K = 128;% Tamanho do dicionário (sugerido K=16)
+L = bloco; % Tamanho do bloco,
+		   % bloco deve ser quadrado 4=2x2, 16=4x4, 64=8x8 (sugerido L=4)
+K = dicio; % Tamanho do dicionário (sugerido K=16)
 %--------------------------------------------------
 % Lê a imagem de entrada
-Img = imread('cameraman.tiff');
+% Img = imread('cameraman.tiff');
 Img2D_rows = size(Img, 1);
 Img2D_cols = size(Img, 2);
 figure, imshow(Img)
-title('Imagem de entrada')
+title('Imagem de entrada') % Mostra imagem inicial passada para a função
 %--------------------------------------------------
 %% Computa o kmeans para achar o dicionário
 r1 = floor(rem(Img2D_rows, sqrt(L)))); % Resto da divisão das linhas pelo tam. do
@@ -61,7 +62,7 @@ I_re = Kmeans_Pre_Post(Img1, L, K);
 % Mostra o resultado da quantização vetorial com o kmeans
 % para a imagem de entrada
 I_re = uint8(I_re);
-figure, imshow(I_re);
+figure, imshow(I_re); 
 title('Imagem comprimida por quantização vetorial (kmeans)')
 %--------------------------------------------------
 % Mostra a área de memória ocupada pelas imagens de entrada e saída
