@@ -2,45 +2,46 @@
 % Imagem 1 - compressão com qualidade 50
 %
 
-cameraman_in = imread('cameraman.tif');
+moon_in = imread('moon.jpg');
+moon_in = rgb2gray(moon_in);
 
-cameraman_out_50 = jpeg_comp(cameraman_in, 50);
+moon_out_10 = jpeg_comp(moon_in, 10);
  
-og = im2double(cameraman_in);
-[psnr_val, snr_val] = psnr_calc(cameraman_out_50, og);
+og = im2double(moon_in);
+[psnr_val, snr_val] = psnr_calc(moon_out_10, og);
 
-% figure, imshow(cameraman_in);
-% figure, imshow(cameraman_out_50);
+imwrite(moon_in, 'moon_in.png')
+imwrite(moon_out_10, 'moon_out_10.png')
 
-f = figure('Name','Compressão JPEG Q: 50');
+f = figure('Name','Compressão JPEG Q: 10');
 subplot(1,2,1);
-imshow(cameraman_in);
+imshow(moon_in);
 subplot(1,2,2);
-imshow(cameraman_out_50);
+imshow(moon_out_10);
 
-info_1 = sprintf('Q: 50 \n PSNR = +%5.2f dB / SNR = %5.2f dB',psnr_val, snr_val);
+info_1 = sprintf('Q: 10 \n PSNR = +%5.2f dB / SNR = %5.2f dB',psnr_val, snr_val);
 title(info_1, 'FontWeight','bold');
 
 disp(info_1)
 
 %
-% Imagem 1 - compressão com qualidade 80
+% Imagem 1 - compressão com qualidade 10
 %
 
-cameraman_out_80 = jpeg_comp(cameraman_in, 80);
+moon_out_2 = jpeg_comp(moon_in, 2);
 
-og = im2double(cameraman_in);
-[psnr_val, snr_val] = psnr_calc(cameraman_out_80, og);
+og = im2double(moon_in);
+[psnr_val, snr_val] = psnr_calc(moon_out_2, og);
 
-% figure, imshow(cameraman_out_80);
+imwrite(moon_out_2, 'moon_out_2.png')
 
-f = figure('Name','Compressão JPEG Q: 80');
+f = figure('Name','Compressão JPEG Q: 2');
 subplot(1,2,1);
-imshow(cameraman_in);
+imshow(moon_in);
 subplot(1,2,2);
-imshow(cameraman_out_80);
+imshow(moon_out_2);
 
-info_2 = sprintf('Q: 80 \n PSNR = +%5.2f dB / SNR = %5.2f dB',psnr_val, snr_val);
+info_2 = sprintf('Q: 2 \n PSNR = +%5.2f dB / SNR = %5.2f dB',psnr_val, snr_val);
 title(info_2,'FontWeight','bold');
 
 

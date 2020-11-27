@@ -4,7 +4,7 @@ function I_out = jpeg_comp(I_in, qual)
 % quantização e o processo reverso
 %
 % I_in   -- uma imagem MxN
-% qual   -- a qualidade da compressão, quanto mais alta, menos 
+% qual   -- inteiro - a qualidade da compressão, quanto mais alta, menos 
 %           comprimida é a imagem
 %
 % retorna uma imagem MxN uint8
@@ -12,7 +12,7 @@ function I_out = jpeg_comp(I_in, qual)
 I = double(I_in);
 
 % centraliza os valores da imagem
-I = I - (128*ones(256));
+I = I - 128;
 
 % aplica a transformada do cosseno em blocos de tamanho 8
 dct_matrix = blockproc(I,[8, 8],@(block_struct)dct2(block_struct.data));
