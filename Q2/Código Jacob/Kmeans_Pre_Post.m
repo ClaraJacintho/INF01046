@@ -19,7 +19,7 @@ end
 % Reconstroi a imagem com os vetores do dicionário (centróides dos K clusters)
 s_re = cell(1, length(s));
 for i=1 : length(s_re)
-	s_re(i) = codebook{ClusterNum(i)};
+	s_re{i} = codebook{ClusterNum(i)};
 end
 I_re = zeros(size(I1));
 for j=1 : length(s_re)
