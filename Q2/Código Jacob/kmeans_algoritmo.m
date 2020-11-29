@@ -6,7 +6,7 @@ function[codebook, ClusterNum] = kmeans_algoritmo(s, L, K)
 codebook = cell(1, K);
 indx = randsample(length(s), K);
 for i=1 : K
-	codebook{i} = s{indx(i)}
+	codebook{i} = s{indx(i)};
 end
 %--------------------------------------------------
 % Atribui o número do cluster aos vetores de entrada
@@ -29,6 +29,7 @@ while(iter<=2 || (Distortion(1)-Distortion(2))/Distortion(2)>0.9)
 		Distortion(2) = Distortion(2) + min(vec_dist{i});
 	end
 	Distortion(2) = Distortion(2)/length(s);
+end
 	% Atualiza o dicionário substituindo cada vetor pela média do
 	% conjunto de vetores de entrada correspondente
 	for i=1 : K
